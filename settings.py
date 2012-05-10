@@ -50,7 +50,7 @@ SITE_PROJECT_NAME = os.path.basename(SITE_ROOT)
 USE_I18N = True
 
 
-MEDIA_ROOT = '/usr/local/nginx/html/ios/ppy_media/'
+MEDIA_ROOT = '/usr/local/nginx/html/weibo/ppy_media/'
 MEDIA_URL = 'http://iphone.raytoon.com/ppy_media/'
 ADMIN_MEDIA_PREFIX = 'http://iphone.raytoon.com/media/admin/'
 
