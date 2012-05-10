@@ -13,6 +13,6 @@ def index(request):
 def ad(request):
     type = request.GET.get('type')
     if type == 'iphone3':
-        return HttpResponseRedirect('/media/ad02.jpg')
+        return HttpResponseRedirect('/media/ios/ad02.jpg')
     else:
-        return HttpResponseRedirect('/media/ad01.jpg')
+        return HttpResponseRedirect('/media/ios/ad01.jpg')
