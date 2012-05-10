@@ -12,7 +12,7 @@ def index(request):
     if type == 'ip3gs':
         return render_to_response('ip3.html')
     else:
-        return HttpResponseRedirect('ip4.html')
+        return render_to_response('ip4.html')
 
 def ad(request):
     type = request.GET.get('type')
