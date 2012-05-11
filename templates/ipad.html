@@ -7,7 +7,11 @@
 <body style='width:910px; height: 250px; background: url("http://iphone.raytoon.com/media/ios/bg_ipad.png") no-repeat scroll 0 0 transparent;'>
 
 <div >
-    have a look
+    <ul>
+        {% for gift_code in gift_codes %}
+        <li>{{ gift_code }}</li>
+        {% endfor %}
+    </ul>
 </div>
 
 </body>
