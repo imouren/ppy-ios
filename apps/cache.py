@@ -18,7 +18,7 @@ def get_gift_code(gift_code):
     return obj
 
 def get_gift_code_by_receipt(receipt):
-    key = CACHE_KEY_GIFT_CODE2 % (receipt)
+    key = CACHE_KEY_GIFT_CODE2 % (hashlib.md5(receipt).hexdigest())
     obj = cache.get(key)
     
     if obj is None:
