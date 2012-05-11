@@ -9,7 +9,7 @@ from apps.cache import *
 
 
 def index(request):
-    type = request.POST.get('type')
+    type = request.POST.get('type', 'ipad')
     receipt = request.POST.get('receipt')
     uid = request.POST.get('uid')
     if receipt and uid:
