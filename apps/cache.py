@@ -12,7 +12,7 @@ def get_gift_code(gift_code):
     if obj is None:
         try:
             obj = GiftCode.objects.get(gift_code=gift_code)
-            obj.set(key, obj)
+            cache.set(key, obj)
         except:
             obj = None
     return obj
@@ -24,7 +24,7 @@ def get_gift_code_by_receipt(receipt):
     if obj is None:
         try:
             obj = GiftCode.objects.get(receipt=receipt)
-            obj.set(key, obj)
+            cache.set(key, obj)
         except:
             obj = None
     return obj
@@ -36,7 +36,7 @@ def get_gift_codes_by_uid(uid):
     if obj is None:
         try:
             obj = GiftCode.objects.filter(uid=uid)
-            obj.set(key, obj)
+            cache.set(key, obj)
         except:
             obj = None
     return obj
