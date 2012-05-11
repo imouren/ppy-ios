@@ -12,10 +12,14 @@ def index(request):
     type = request.GET.get('type')
     receipt = request.GET.get('receipt')
     uid = request.GET.get('uid')
+    if receipt and uid:
+        gift_code = get_or_create_gift_code(receipt, uid, type)
+    gift_codes = get_gift_codes_by_uid(uid)
+    data = {'gift_codes':gift_codes, 'have_gift_code':len(gift_codes)>0}
     if type == 'ipad':
-        return render_to_response('ipad.html')
+        return render_to_response('ipad.html', data, context_instance=RequestContext(request))
     else:
-        return render_to_response('iphone.html')
+        return render_to_response('iphone.html', data, context_instance=RequestContext(request))
 
 def ad(request):
     type = request.GET.get('type')
