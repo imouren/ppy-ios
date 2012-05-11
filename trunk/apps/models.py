@@ -8,7 +8,7 @@ CACHE_KEY_GIFT_CODE2 = 'cach_gift_code_r_%s' #%s is receipt
 CACHE_KEY_GIFT_CODES = 'cach_gift_code_u_%s' #%s is uid 
 
 class GiftCode(models.Model):
-    receipt = models.TextField(unique=True, max_length=10000)
+    receipt = models.TextField(unique=True, length=10000)
     uid = models.CharField(max_length=100)
     type = models.CharField(max_length=10)
     gift_code = models.CharField(max_length=32,blank=True,null=True)
