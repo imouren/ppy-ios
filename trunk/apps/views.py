@@ -9,9 +9,9 @@ from apps.cache import *
 
 
 def index(request):
-    type = request.POST.get('type', 'ipad')
-    receipt = request.POST.get('receipt')
-    uid = request.POST.get('uid')
+    type = request.get.get('type', 'ipad')
+    receipt = request.get.get('receipt')
+    uid = request.get.get('uid')
     if receipt and uid:
         gift_code = get_or_create_gift_code(receipt, uid, type)
     gift_codes = get_gift_codes_by_uid(uid)
