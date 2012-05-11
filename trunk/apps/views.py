@@ -20,7 +20,7 @@ def index(request):
 def ad(request):
     type = request.GET.get('type')
     if type == 'ipad':
-        return HttpResponseRedirect('/media/ios/ad01.jpg')
+        return HttpResponseRedirect('/media/ios/ipad.png')
     else:
-        return HttpResponseRedirect('/media/ios/ad02.jpg')
+        return HttpResponseRedirect('/media/ios/iphone.png')
 
