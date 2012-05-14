@@ -18,14 +18,15 @@ APPLE_URL = 'https://sandbox.itunes.apple.com/verifyReceipt' # for test
 def get_or_create_gift_code(receipt, uid, type):
     gift_code = get_gift_code_by_receipt(receipt)
     if not gift_code:
-        gift_code = hashlib.md5(receipt+str(time.time())).hexdigest()
-        gift_code = GiftCode(
-                    receipt = receipt,
-                    uid = uid, 
-                    type = type, 
-                    gift_code = gift_code
-                    )
-        gift_code.save()
+        if verify_receipts(receipt):
+            gift_code = hashlib.md5(receipt+str(time.time())).hexdigest()
+            gift_code = GiftCode(
+                        receipt = receipt,
+                        uid = uid, 
+                        type = type, 
+                        gift_code = gift_code
+                        )
+            gift_code.save()
     return gift_code
 
 def verify_receipts(receipts):
