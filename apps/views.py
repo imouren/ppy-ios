@@ -13,8 +13,7 @@ def index(request):
     receipt = request.GET.get('receipt')
     uid = request.GET.get('uid')
     if receipt and uid:
-        if verify_receipts(receipt):
-            gift_code = get_or_create_gift_code(receipt, uid, type)
+        gift_code = get_or_create_gift_code(receipt, uid, type)
     gift_codes = get_gift_codes_by_uid(uid)
     data = {'gift_codes':gift_codes, 'have_gift_code':gift_codes is None}
     if type == 'ipad':
