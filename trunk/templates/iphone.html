@@ -1,16 +1,29 @@
-<!doctype html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-        <title>泡泡鱼兑换码</title>
-    </head>
-<body style='width:430px; height:106px; background: url("http://iphone.raytoon.com/media/ios/bg_iphone.png") no-repeat scroll 0 0 transparent;' >
-<div id="main">
-    <ul>
-        {% for gift_code in gift_codes %}
-        <li>{{ gift_code.gift_code }}</li>
-        {% endfor %}
-    </ul>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+
+<style>
+.p1{width:910px; height:250px; margin:auto; background-image:url(http://iphone.raytoon.com/media/ios/p1.png);}
+.p2{width:430px; height:118px; margin:auto; background-image:url(http://iphone.raytoon.com/media/ios/p2.png); overflow:hidden;}
+</style>
+
+</head>
+
+<body style="margin:0px;">
+
+<div class="p2">
+<div style="width:390px; padding-top:35px; padding-left:15px; font-size:20px; font-weight:bold; color:#CCCCCC ">
+  
+  {% if have_gift_code %}
+    {% for gift_code in gift_codes %}
+        <div align="center">{{ gift_code.gift_code }}</div>
+    {% endfor %}
+  {% else %}
+  <div align="center">您充值后经获赠礼品码</div>
+  {% endif %}
+</div>
 </div>
 
 </body>
