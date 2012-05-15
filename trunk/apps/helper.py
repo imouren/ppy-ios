@@ -27,6 +27,7 @@ def get_or_create_gift_code(receipt, uid, type):
                         gift_code = gift_code
                         )
             gift_code.save()
+            update_gift_codes_by_uid(uid, gift_code)
     return gift_code
 
 def verify_receipts(receipts):
