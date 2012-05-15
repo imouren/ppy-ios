@@ -30,13 +30,5 @@ def get_gift_code_by_receipt(receipt):
     return obj
 
 def get_gift_codes_by_uid(uid):
-    key = CACHE_KEY_GIFT_CODES % (uid)
-    obj = cache.get(key)
-    
-    if obj is None:
-        try:
-            obj = GiftCode.objects.filter(uid=uid)
-            cache.set(key, obj)
-        except:
-            obj = None
+    obj = GiftCode.objects.filter(uid=uid)
     return obj
