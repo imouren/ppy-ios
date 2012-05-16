@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -25,6 +26,47 @@
   {% endif %}
 </div>
 </div>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>礼品码</title>
+</head>
+
+<body>
+
+<DIV class="ppy"  style="width:910px; overflow:hidden; margin:auto;">
+<DIV>
+    	<DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_01.jpg" width="162" height="70" /></DIV>
+<DIV style=" width:693px; height:70px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/ipad_03.jpg);">
+<div style="font-weight:bold; line-height:20px; color:#6a3906; font-size:14px; padding-top:15px; padding-left:5px;">即时活动：限购买100000贝壳 送来自 苹果 的<span style="color:#F00;">专属鱼（或600珍珠）</span>！<br />
+购买成功后，凭本<span style="color:#F00;">兑换码</span>去任意平台网页版本中兑换。</div>
+</DIV>
+        <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_03-05.jpg" width="55" height="70" /></DIV>
+    </DIV>
+    
+	<DIV style=" font-size:35px; color: #F0F0F0; font-family:Arial, Helvetica, sans-serif; font-weight:bold;width:910px; clear:both; background-image:url(http://iphone.raytoon.com/media/ios/ipad_09.jpg); text-align: center;">
+    {% if have_gift_code %}
+        {% for gift_code in gift_codes %}
+        <div>{{ gift_code.gift_code }}</div>
+        {% endfor %}
+    {% else %}
+        <div>您充值后将获赠礼品码</div>
+    {% endif %}
+    </DIV>
+    
+<DIV style="clear:both;">
+    <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_11.jpg" width="162" height="35" /></DIV>
+      <DIV style=" width:693px; height:35px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/ipad_132.jpg)"></DIV>
+        <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_15.jpg" width="55" height="35" /></DIV>
+    </DIV>
+    
+</DIV>
 
 </body>
 </html>
