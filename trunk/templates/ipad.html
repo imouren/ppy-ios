@@ -55,6 +55,9 @@
         {% for gift_code in gift_codes %}
         <div>{{ gift_code.gift_code }}</div>
         {% endfor %}
+        {% for i in left_div %}
+            <div>&nbsp;</div>
+        {% endfor %}
     {% else %}
         <div>您充值后将获赠礼品码</div>
         <div>&nbsp;</div>
