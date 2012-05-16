@@ -15,7 +15,7 @@ def index(request):
     if receipt and uid:
         gift_code = get_or_create_gift_code(receipt, uid, type)
     gift_codes = get_gift_codes_by_uid(uid)
-    left_num = 0
+    left_div = []
     if gift_codes:
         left_num = 0 if len(gift_code)>3 else 3-len(gift_code)
         left_div = [i for i in range(left_num)]
