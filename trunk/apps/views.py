@@ -17,7 +17,7 @@ def index(request):
     gift_codes = get_gift_codes_by_uid(uid)
     left_div = []
     if gift_codes:
-        left_num = 0 if len(gift_code)>3 else 3-len(gift_code)
+        left_num = 0 if len(gift_codes)>3 else 3-len(gift_codes)
         left_div = [i for i in range(left_num)]
     data = {'gift_codes':gift_codes, 'have_gift_code':gift_codes is not None and len(gift_codes)>0, 'leleft_div':left_div}
     if type == 'ipad':
