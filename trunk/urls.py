@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     
     (r'^$','apps.views.index'),
     (r'^ad/','apps.views.ad'),
+    (r'^exchange_gift/','apps.views.exchange_gift'),
 )
 
 
