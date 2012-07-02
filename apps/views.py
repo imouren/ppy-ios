@@ -38,9 +38,9 @@ def ad(request):
 
 
 def exchange_gift(request):
-    gift_code = request.GET.get('gift_code')
-    platforms = request.GET.get('platforms')
-    sig = request.GET.get('sig')
+    gift_code = request.GET.get('gift_code', '')
+    platforms = request.GET.get('platforms', '')
+    sig = request.GET.get('sig', '')
     mysig = new_sig(gift_code, platforms)
     
     data = None
