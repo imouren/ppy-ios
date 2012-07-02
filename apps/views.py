@@ -49,6 +49,13 @@ def exchange_gift(request):
     if sig != mysig:
         data = {'error':'sig error'}
 
+    key = "lock_iphone_gift_%s" %(gift_code)
+    locked = cache.get(key)
+    if locked:
+        return {'error':'gift_code error'}
+    else:
+        cache.set(key, True, 30)
+
     gift_code_obj = get_gift_code(gift_code)
     if not gift_code_obj:
         data = {'error':'gift code does not exist'}
