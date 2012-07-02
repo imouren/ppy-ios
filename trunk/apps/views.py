@@ -15,6 +15,7 @@ def index(request):
     if receipt and uid:
         gift_code = get_or_create_gift_code(receipt, uid, type)
     gift_codes = get_gift_codes_by_uid(uid)
+    gift_codes = list(gift_codes)
     gift_records = get_gift_code_records_by_uid(uid)
     for g in gift_codes:
         if g.gift_code in gift_records:
