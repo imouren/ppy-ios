@@ -7,6 +7,7 @@ from datetime import date, datetime, timedelta
 CACHE_KEY_GIFT_CODE = 'cach_gift_code_%s' #%s is gift_code
 CACHE_KEY_GIFT_CODE2 = 'cach_gift_code_r_%s' #%s is md5(receipt )
 CACHE_KEY_GIFT_CODES = 'cach_gift_code_u_%s' #%s is uid 
+CACHE_KEY_GIFT_CODE_RECODE = 'cach_gift_code_record_%s' #%s is gift_code
 
 class GiftCode(models.Model):
     uid = models.CharField(max_length=100)
@@ -40,5 +41,28 @@ class GiftCode(models.Model):
         db_table = 'ios_giftcode'
 
 
-
+class GiftCodeRecord(models.Model):
+    uid = models.CharField(max_length=100)
+    gift_code = models.CharField(max_length=32)
+    platforms = models.CharField(max_length=10)
+    create_time = models.DateTimeField(auto_now_add=True)
+    
+    def update_cache(self):
+        key = CACHE_KEY_GIFT_CODE_RECODE % (self.gift_code)
+        cache.set(key, self)
+        
+    def delete_cache(self):
+        key = CACHE_KEY_GIFT_CODE_RECODE % (self.gift_code)
+        cache.delete(key)
+        
+    def save(self):
+        super(GiftCodeRecord, self).save()
+        self.update_cache()
+        
+    def delete(self):
+        self.delete_cache()
+        super(GiftCodeRecord, self).delete()
+    
+    class Meta:
+        db_table = 'ios_giftcoderecord'
 

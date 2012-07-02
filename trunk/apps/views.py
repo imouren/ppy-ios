@@ -15,6 +15,10 @@ def index(request):
     if receipt and uid:
         gift_code = get_or_create_gift_code(receipt, uid, type)
     gift_codes = get_gift_codes_by_uid(uid)
+    gift_records = get_gift_code_records_by_uid(uid)
+    for g in gift_codes:
+        if g.gift_code in gift_records:
+            gift_codes.remove(g)
     left_div = []
     if gift_codes:
         left_num = 0 if len(gift_codes)>3 else 3-len(gift_codes)
@@ -32,3 +36,35 @@ def ad(request):
     else:
         return HttpResponseRedirect('/media/ios/iphone_tw.png')
 
+
+def exchange_gift(request):
+    gift_code = request.GET.get('gift_code')
+    platforms = request.GET.get('platforms')
+    sig = request.GET.get('sig')
+    mysig = new_sig(gift_code, platforms)
+    
+    data = None
+    
+    if sig != mysig:
+        data = {'error':'sig error'}
+
+    gift_code_obj = get_gift_code(gift_code)
+    if not gift_code_obj:
+        data = {'error':'gift code does not exist'}
+
+    gift_code_recode_obj = get_gift_code_recode(gift_code)
+    if gift_code_recode_obj:
+        data = {'error':'gift code have used'}
+
+    if not data:
+        gift_code_record = GiftCodeRecord(
+                    uid = gift_code_obj.uid,
+                    gift_code = gift_code,
+                    platforms = platforms, 
+                    )
+        gift_code_record.save()
+        data = {'ok':'ok'}
+
+    response = HttpResponse(simplejson.dumps(data))
+    response['Content-type'] = 'application/json'
+    return response
