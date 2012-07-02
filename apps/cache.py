@@ -5,6 +5,19 @@ import sys
 from django.core.cache import cache
 from apps.models import *
 
+
+def get_gift_code_recode(gift_code):
+    key = CACHE_KEY_GIFT_CODE_RECODE % (gift_code)
+    obj = cache.get(key)
+    
+    if not obj:
+        try:
+            obj = GiftCodeRecord.objects.get(gift_code=gift_code)
+            cache.set(key, obj)
+        except:
+            obj = None
+    return obj
+
 def get_gift_code(gift_code):
     key = CACHE_KEY_GIFT_CODE % (gift_code)
     obj = cache.get(key)
@@ -27,6 +40,13 @@ def get_gift_code_by_receipt(receipt):
             cache.set(key, obj)
         except:
             obj = None
+    return obj
+
+def get_gift_code_records_by_uid(uid):
+    try:
+        obj = list(GiftCodeRecord.objects.filter(uid=uid).values_list('gift_code', flat=True))
+    except:
+        obj = []
     return obj
 
 def get_gift_codes_by_uid(uid):

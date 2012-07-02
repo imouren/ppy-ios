@@ -15,6 +15,9 @@ from apps.cache import *
 #APPLE_URL = 'https://buy.itunes.apple.com/verifyReceipt'
 APPLE_URL = 'https://sandbox.itunes.apple.com/verifyReceipt' # for test
 
+#for platforms check sig
+SECRECT = 'justtests78*^*^'
+
 def get_or_create_gift_code(receipt, uid, type):
     gift_code = get_gift_code_by_receipt(receipt)
     if not gift_code:
@@ -41,6 +44,10 @@ def verify_receipts(receipts):
     else:
         return False
 
+def new_sig(gift_code, platforms):
+    strs = gift_code[:-8] + SECRECT + platforms
+    sig = hashlib.md5(strs).hexdigest()
+    return sig
 
 if __name__ == "__main__":
     #receipts = 'Y29tLnVydXMuaWFwLjIyMjkwNDQw'
