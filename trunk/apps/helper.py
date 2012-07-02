@@ -16,7 +16,7 @@ from apps.cache import *
 APPLE_URL = 'https://sandbox.itunes.apple.com/verifyReceipt' # for test
 
 #for platforms check sig
-SECRECT = 'justtests78*^*^'
+SECRECT = ''
 
 def get_or_create_gift_code(receipt, uid, type):
     gift_code = get_gift_code_by_receipt(receipt)
