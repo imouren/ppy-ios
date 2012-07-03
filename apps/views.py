@@ -52,7 +52,7 @@ def exchange_gift(request):
     key = "lock_iphone_gift_%s" %(gift_code)
     locked = cache.get(key)
     if locked:
-        return {'error':'gift_code error'}
+        data = {'error':'sig error'}
     else:
         cache.set(key, True, 30)
 
