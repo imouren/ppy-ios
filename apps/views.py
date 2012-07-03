@@ -31,8 +31,8 @@ def index(request):
         return render_to_response('iphone.html', data, context_instance=RequestContext(request))
 
 def ad(request):
-    type = request.GET.get('type')
-    ln = request.GET.get('ln')
+    type = request.GET.get('type', 'ipad')
+    ln = request.GET.get('ln', 'zh-Hans')
     if type == 'ipad':
         pic = '/media/ios/ipad_%s.png' % ln
     else:
