@@ -32,10 +32,12 @@ def index(request):
 
 def ad(request):
     type = request.GET.get('type')
+    ln = request.GET.get('ln')
     if type == 'ipad':
-        return HttpResponseRedirect('/media/ios/ipad_tw.png')
+        pic = '/media/ios/ipad_%s.png' % ln
     else:
-        return HttpResponseRedirect('/media/ios/iphone_tw.png')
+        pic = '/media/ios/iphone_%s.png' % ln
+    return HttpResponseRedirect(pic)
 
 
 def exchange_gift(request):
