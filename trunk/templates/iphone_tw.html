@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>禮品碼</title>
+</head>
+
+<body>
+
+<div class="ppy"  style="width:430px; overflow:hidden; margin:auto;">
+  <div>
+    <div style="float:left;"><img src="http://iphone.raytoon.com/media/ios/iphone_01_tw.png" width="79" height="31" /></div>
+    <div style=" width:329px; height:31px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/iphone_03.jpg);">
+      <div style=" color:#6a3906; font-size:12px; padding-top:5px;">凭<span style="color:#F00;">兌換碼</span>去任意平臺網頁版兌換手機<span style="color:#F00;">專屬魚（貨600珍珠）</span>！ </div>
+    </div>
+    <div style="float:left;"><img src="http://iphone.raytoon.com/media/ios/iphone_03-05.jpg" width="22" height="31" /></div>
+  </div>
+  <div style=" font-size:18px; color: #F0F0F0; font-family:Arial, Helvetica, sans-serif; font-weight:bold;width:430px; clear:both; background-image:url(http://iphone.raytoon.com/media/ios/iphone_09.jpg);text-align: center;">
+
+    {% if have_gift_code %}
+        {% for gift_code in gift_codes %}
+        <div>{{ gift_code.gift_code }}</div>
+        {% endfor %}
+        {% for i in left_div %}
+            <div>&nbsp;</div>
+        {% endfor %}
+    {% else %}
+        <div>您充值后將獲贈禮品碼</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+    {% endif %}
+
+  </div>
+  <div style="clear:both;">
+    <div style="float:left;"><img src="http://iphone.raytoon.com/media/ios/iphone_11.jpg" width="24" height="11" /></div>
+    <div style=" width:384px;height:11px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/iphone_021.jpg)"></div>
+    <div style="float:left;"><img src="http://iphone.raytoon.com/media/ios/iphone_15.jpg" width="22" height="11" /></div>
+  </div>
+</div>
+
+</body>
+</html>

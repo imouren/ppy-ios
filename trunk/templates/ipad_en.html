@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>code</title>
+</head>
+
+<body>
+
+<DIV class="ppy"  style="width:910px; overflow:hidden; margin:auto;">
+<DIV>
+    	<DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_01_en.png" width="162" height="70" /></DIV>
+<DIV style=" width:693px; height:70px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/ipad_03.jpg);">
+<div style="font-weight:bold; line-height:20px; color:#6a3906; font-size:14px; padding-top:15px; padding-left:5px;">Redeem the code on any web version based on any platform to get a Mobile 
+Exclusive Fish or 600 Perls.</div>
+</DIV>
+        <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_03-05.jpg" width="55" height="70" /></DIV>
+    </DIV>
+    
+	<DIV style=" font-size:35px; color: #F0F0F0; font-family:Arial, Helvetica, sans-serif; font-weight:bold;width:910px; clear:both; background-image:url(http://iphone.raytoon.com/media/ios/ipad_09.jpg); text-align: center;">
+    {% if have_gift_code %}
+        {% for gift_code in gift_codes %}
+        <div>{{ gift_code.gift_code }}</div>
+        {% endfor %}
+        {% for i in left_div %}
+            <div>&nbsp;</div>
+        {% endfor %}
+    {% else %}
+        <div>you have not code </div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+    {% endif %}
+    </DIV>
+    
+<DIV style="clear:both;">
+    <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_11.jpg" width="162" height="35" /></DIV>
+      <DIV style=" width:693px; height:35px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/ipad_132.jpg)"></DIV>
+        <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_15.jpg" width="55" height="35" /></DIV>
+    </DIV>
+    
+</DIV>
+
+</body>
+</html>
