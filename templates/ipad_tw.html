@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>禮品碼</title>
+</head>
+
+<body>
+
+<DIV class="ppy"  style="width:910px; overflow:hidden; margin:auto;">
+<DIV>
+    	<DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_01_tw.png" width="162" height="70" /></DIV>
+<DIV style=" width:693px; height:70px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/ipad_03.jpg);">
+<div style="font-weight:bold; line-height:20px; color:#6a3906; font-size:14px; padding-top:15px; padding-left:5px;">即時活動：限購買100000貝殼 送來自 手機 的<span style="color:#F00;">專屬魚（或600珍珠）</span>！<br />
+購買成功后，憑本<span style="color:#F00;">兌換碼</span>去任意平臺網頁版中兌換。</div>
+</DIV>
+        <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_03-05.jpg" width="55" height="70" /></DIV>
+    </DIV>
+    
+	<DIV style=" font-size:35px; color: #F0F0F0; font-family:Arial, Helvetica, sans-serif; font-weight:bold;width:910px; clear:both; background-image:url(http://iphone.raytoon.com/media/ios/ipad_09.jpg); text-align: center;">
+    {% if have_gift_code %}
+        {% for gift_code in gift_codes %}
+        <div>{{ gift_code.gift_code }}</div>
+        {% endfor %}
+        {% for i in left_div %}
+            <div>&nbsp;</div>
+        {% endfor %}
+    {% else %}
+        <div>您充值后將獲贈禮品碼</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+    {% endif %}
+    </DIV>
+    
+<DIV style="clear:both;">
+    <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_11.jpg" width="162" height="35" /></DIV>
+      <DIV style=" width:693px; height:35px;float:left; background-image:url(http://iphone.raytoon.com/media/ios/ipad_132.jpg)"></DIV>
+        <DIV style="float:left;"><img src="http://iphone.raytoon.com/media/ios/ipad_15.jpg" width="55" height="35" /></DIV>
+    </DIV>
+    
+</DIV>
+
+</body>
+</html>
