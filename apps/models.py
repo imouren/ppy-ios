@@ -44,7 +44,7 @@ class GiftCode(models.Model):
 class GiftCodeRecord(models.Model):
     uid = models.CharField(max_length=100)
     gift_code = models.CharField(max_length=32)
-    platforms = models.CharField(max_length=10)
+    platforms = models.CharField(max_length=20)
     create_time = models.DateTimeField(auto_now_add=True)
     
     def update_cache(self):
