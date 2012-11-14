@@ -14,8 +14,8 @@ def index(request):
     uid = request.GET.get('uid')
     ln = request.GET.get('ln', 'zh-Hans')
     ln_dic = {'zh-Hans':'', 'en':'_en', 'zh-Hant':'_tw'}
-    if receipt and uid:
-        gift_code = get_or_create_gift_code(receipt, uid, type)
+#    if receipt and uid:
+#        gift_code = get_or_create_gift_code(receipt, uid, type)
     gift_codes = get_gift_codes_by_uid(uid)
     gift_codes = list(gift_codes)
     gift_records = get_gift_code_records_by_uid(uid)
